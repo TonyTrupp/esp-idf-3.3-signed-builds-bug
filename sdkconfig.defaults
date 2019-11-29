@@ -1,0 +1,39 @@
+
+CONFIG_IDF_TARGET="esp32"
+
+# Use release for production build 
+CONFIG_OPTIMIZATION_LEVEL_DEBUG=y
+# CONFIG_OPTIMIZATION_LEVEL_RELEASE is not set
+
+// Size of ESP32 ROM (defaults to 2MB, not 4MB) 
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+
+
+// Set speed for serial monitor. Must match what's defined within Serial.begin(). 
+CONFIG_MONITOR_BAUD_115200B=y
+CONFIG_MONITOR_BAUD_OTHER_VAL=115200
+CONFIG_MONITOR_BAUD=115200
+
+
+# Use custom partition table, to be able to do over the air updates without running out of space 
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions_2_large_ota.csv"
+CONFIG_PARTITION_TABLE_FILENAME="partitions_2_large_ota.csv"
+CONFIG_PARTITION_TABLE_OFFSET=0x8000
+
+
+# Security features 
+CONFIG_SECURE_SIGNED_ON_UPDATE=y
+CONFIG_SECURE_SIGNED_APPS=y
+CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT=y
+CONFIG_SECURE_SIGNED_ON_UPDATE_NO_SECURE_BOOT=y
+CONFIG_SECURE_BOOT_BUILD_SIGNED_BINARIES=y
+CONFIG_SECURE_BOOT_SIGNING_KEY="secure_boot_signing_key.pem"
+
+
+# Enable power management, so CPU speed can be raised for speed or lowered for power savings 
+CONFIG_PM_ENABLE = y 
+
+
+
+
